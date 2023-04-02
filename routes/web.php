@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::redirect('/', '/posts');
+
+Route::get('/posts', function () {
+    return view('post_list', [
+        'title' => 'Home',
+        'posts' => Post::all(),
+    ]);
 });
