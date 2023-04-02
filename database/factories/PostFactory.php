@@ -17,7 +17,7 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence(3),
             'excerpt' => $this->faker->paragraph(5),
             //'body' => collect($this->faker->sentences(5))->implode('\n'), //generate 5 sentences and glue them into a single string
-            'body' => implode('\n', $this->faker->paragraphs(5)),
+            'body' => implode("\n", $this->faker->paragraphs(5)),
             'author_id' => 1,
             'category_id' => 1,
             'publish_date' => Carbon::now(),
