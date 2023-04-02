@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -35,5 +36,11 @@ Route::get('/posts', function () {
 Route::get('/author/{author}', function(User $author) {
     return view('post_list', [
         'posts' => $author->posts
+    ]);
+});
+
+Route::get("/category/{category}", function(Category $category) {
+    return view('post_list', [
+        'posts' => $category->posts
     ]);
 });
