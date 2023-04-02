@@ -20,14 +20,14 @@ class Post extends Model
         'publish_date' => 'datetime',
     ];
 
-    public function author() {
-        return $this->belongsTo('author');
-
-    }
-
-
     public function category() {
-        return $this->belongsTo('categories');
+        return $this->belongsTo(Category::class);
+    }
+
+    protected $with = ['category', 'author'];
+    public function author() {
+        return $this->belongsTo(User::class);
 
     }
+
 }

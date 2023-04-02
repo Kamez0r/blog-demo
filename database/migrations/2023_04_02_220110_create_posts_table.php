@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->text('title');
             $table->text('excerpt');
             $table->text('body');
-            $table->foreignId('author_id');
+            $table->foreignId('author_id')->references('id')->on('users');
             $table->foreignId('category_id');
             $table->timestamp('publish_date');
             $table->softDeletes();
