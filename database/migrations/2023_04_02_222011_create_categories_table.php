@@ -7,14 +7,9 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->text('title');
-            $table->text('excerpt');
-            $table->text('body');
-            $table->foreignId('author_id');
-            $table->foreignId('category_id');
-            $table->timestamp('publish_date');
+            $table->string('title');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -22,8 +17,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('categories');
     }
-
-
 };

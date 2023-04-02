@@ -21,6 +21,13 @@ class Post extends Model
     ];
 
     public function author() {
-        return User::find(1);
+        return $this->belongsTo('author');
+
+    }
+
+
+    public function category() {
+        return $this->belongsTo('categories');
+
     }
 }

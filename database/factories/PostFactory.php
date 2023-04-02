@@ -12,23 +12,14 @@ class PostFactory extends Factory
 
     public function definition(): array
     {
-        $excerpt = $this->faker->sentence(20);
-
-        $body = [
-            $excerpt,
-            $this->faker->sentence(25),
-            $this->faker->sentence(35),
-            $this->faker->sentence(20),
-            $this->faker->sentence(15),
-        ];
-
-        $body = implode("\n", $body);
 
         return [
             'title' => $this->faker->sentence(3),
-            'excerpt' => $excerpt,
-            'body' => $body,
+            'excerpt' => $this->faker->sentence(25),
+            //'body' => collect($this->faker->sentences(5))->implode('\n'), //generate 5 sentences and glue them into a single string
+            'body' => implode('\n', $this->faker->sentences(5)),
             'author_id' => 1,
+            'category_id' => 1,
             'publish_date' => Carbon::now(),
         ];
     }
